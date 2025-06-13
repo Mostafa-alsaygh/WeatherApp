@@ -11,15 +11,22 @@ import androidx.compose.ui.Modifier
 import com.example.weatherapp.di.appModule
 import com.example.weatherapp.presentation.design.AppTheme
 import com.example.weatherapp.presentation.features.HomeScreen
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
 
-            startKoin { modules(appModule) }
+        startKoin {
+            androidContext(this@MainActivity)
+            modules(appModule)
+        }
+
+        enableEdgeToEdge()
+
+        setContent {
 
             AppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -28,6 +35,4 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
-
 }

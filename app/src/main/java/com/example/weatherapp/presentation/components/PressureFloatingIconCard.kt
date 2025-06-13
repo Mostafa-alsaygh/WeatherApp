@@ -1,5 +1,6 @@
 package com.example.weatherapp.presentation.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -41,7 +43,7 @@ fun PressureFloatingIconCard(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(140.dp)
+                .height(120.dp)
                 .clip(RoundedCornerShape(20.dp))
                 .border(1.dp, Color(0xFFE0E0E0), RoundedCornerShape(20.dp))
                 .background(Color.White)
@@ -49,45 +51,30 @@ fun PressureFloatingIconCard(
             contentAlignment = Alignment.TopCenter
         ) {
             Column(
+                modifier = Modifier.padding(top = 8.dp), // <-- Shift column down
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(4.dp) // reduce spacing!
+                verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Text(
                     text = "$value $unit",
-                    style = AppTheme.typography.titleMedium.copy(
-                        fontWeight = FontWeight.Bold,
-                    ),
+                    style = AppTheme.typography.titleLarge,
                     color = Color(0xFF212121)
                 )
 
                 Text(
                     text = label,
-                    style = AppTheme.typography.body.copy(
+                    style = MaterialTheme.typography.bodySmall.copy(
                         color = Color.Gray
                     )
                 )
             }
         }
-
-        Icon(
+        Image(
             painter = iconRes,
             contentDescription = null,
-            tint = Color(0xFF64B5F6),
             modifier = Modifier
-                .size(36.dp)
-                .offset(y = (-12).dp)
+                .size(58.dp)
+                .offset(y = (-20).dp)
         )
     }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun PressureFloatingIconCardPreview() {
-    PressureFloatingIconCard(
-        value = "1012",
-        unit = "hPa",
-        label = "Pressure",
-        iconRes = painterResource(id = R.drawable.clear_sky) // use your download icon here
-    )
 }

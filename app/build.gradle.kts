@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.play.services.location)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -60,12 +61,14 @@ dependencies {
 
     testImplementation(libs.truth)
     testImplementation(libs.mockk)
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
 
-
-    implementation(libs.koin.android)
-    implementation(libs.koin.androidx.viewmodel)
-    implementation(libs.koin.androidx.compose)
-
+    implementation(libs.koin.compose)
+    implementation(libs.koin.compose.viewmodel)
+    implementation(libs.koin.compose.viewmodel.navigation)
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.koin.core)
+    implementation (libs.koin.androidx.compose)
 
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.cio)

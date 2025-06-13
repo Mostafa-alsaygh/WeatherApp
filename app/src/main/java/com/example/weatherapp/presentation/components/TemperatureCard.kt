@@ -51,19 +51,21 @@ fun TemperatureCard(
                 )
                 Spacer.Small(vertical = false)
                 Text(
-                    text = "$maxTemp°C",
+                    text = "${maxTemp}°C",
                     color = AppTheme.colors.secondary.copy(alpha = 0.6f),
                     style = AppTheme.typography.titleLarge
                 )
             }
 
             Spacer.Small(vertical = false)
+
             Box(
                 modifier = Modifier
                     .height(20.dp)
                     .width(1.dp)
                     .background(Color(0x80333333)) // semi-transparent grey
             )
+
             Spacer.MediumSmall(vertical = false)
 
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -82,13 +84,4 @@ fun TemperatureCard(
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TemperatureCardPreview() {
-    TemperatureCard(
-        maxTemp = 32,
-        minTemp = 20
-    )
 }

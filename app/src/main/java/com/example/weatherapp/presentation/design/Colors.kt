@@ -27,9 +27,9 @@ data class Colors(
         )
 
         val DarkColors = Colors(
-            primary = Color(0xFF060414),
-            secondary = Color(0xFF87CEFA),
-            contentPrimary = Color(0xFFFFFFFF),
+            primary = Color(0xB2060414),
+            secondary = Color(0xFFFFFFFF),
+            contentPrimary = Color(0xB2060414),
         )
     }
 

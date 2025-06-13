@@ -72,14 +72,3 @@ fun PressureCard(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun PressureCardPreview() {
-    PressureCard(
-        value = "1012",
-        unit = "hPa",
-        label = "Pressure",
-        iconRes = R.drawable.clear_sky // use your download icon here
-    )
-}
